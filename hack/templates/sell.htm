@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <main class="sell-hero">
+          <div class="sell-content">
+            <h1 class="heading-1">Sales</h1>
+            {% if current_user.roles != "god" %}
+            <form method="post" class="reg-form">
+            {{form.hidden_tag()}}
+            <div class="input-wrapper">
+              <label for="offline" class="form-label">{{form.offline.label}}</label>
+              {{form.offline(class="form-input exceptions")}}
+            </div>
+
+            {%if form.offline.errors%} {%for error in
+              form.offline.errors%}
+            <small>{{error}}</small>
+            {%endfor%} {%endif%}
+
+            <div class="input-wrapper">
+              <label for="online" class="form-label">{{form.online.label}}</label>
+              {{form.online(class="form-input exceptions")}}
+            </div>
+
+            {%if form.online.errors%} {%for error in
+              form.online.errors%}
+            <small>{{error}}</small>
+            {%endfor%} {%endif%}
+
+            <div class="input-wrapper">
+              <label for="buisness" class="form-label">{{form.buisness.label}}</label>
+              {{form.buisness(class="form-input exceptions")}}
+            </div>
+
+            {%if form.buisness.errors%} {%for error in form.buisness.errors%}
+            <small>{{error}}</small>
+            {%endfor%} {%endif%}
+
+            {{form.submit(class="btn")}}
+        </form>
+        </div>
+        </main>
+
+       {% endif %}
+       {#    <br><br><br><br><br><br>#}
+        {%if current_user.roles == "god"%}
+        <table class="table">
+          <thead>
+            <tr class="table-row">
+              <th scope="col">Time</th>
+              <th scope="col">User</th>
+              <th scope="col">Offline</th>
+              <th scope="col">Online</th>
+              <th scope="col">Buisness</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%for i in range(n)%}
+            <tr>
+              <td scope="row">{{date[i].strftime('%Y-%m-%d %H:%M:%S.%f')[:-4]}}</td>
+              <td>{{user.fname}}</td>
+              <td>{{offline[i]}}</td>
+              <td>{{online[i]}}</td>
+              <td>{{buisness[i]}}</td>
+            </tr>
+            {%endfor%}
+          </tbody>
+        </table>
+
+            <section class="graph-content">
+    <canvas id="myChart" width="100" height="50"></canvas>
+    </section>
+<script>
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: {{ date_gr|safe }},
+        datasets: [{
+            label: 'Offline',
+            data: {{offline_gr}},
+            backgroundColor:'#e73478',
+            borderColor: '#e73478',
+            tension: 0.1,
+            borderWidth: 1
+        },{
+            label: 'Online',
+            data: {{online_gr}},
+            fill:false,
+            backgroundColor: '#eff1f3',
+            borderColor: '#eff1f3',
+             tension: 0.1,
+            borderWidth: 1
+        },{
+            label: 'Buisness',
+            data: {{buisness_gr}},
+            fill:false,
+            backgroundColor: '#e3b505',
+            borderColor: '#e3b505',
+             tension: 0.1,
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        },
+        plugins: {
+            title: {
+                display: true,
+                text: 'Sales graph'
+            }
+        }
+    }
+});
+</script>
+
+        {%endif%}
+{% endblock %}

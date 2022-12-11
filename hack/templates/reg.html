@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br><br>
+    <!-- <main class="login-hero">
+        <div class="login-content">
+            <h1 class="heading-1">Register</h1>
+            <form method="post" class="reg-form">
+                <div class="input-wrapper">
+                    <label for="uname" class="form-label">Email</label>
+                    <input class="form-input exceptions" id="email" name="email" required="" type="text" value="">
+                </div>
+                <div class="input-wrapper">
+                    <label for="pass" class="form-label">Password</label>
+                    <input class="form-input exceptions" id="email" name="password1" required="" type="password" value=""></div>
+
+                <div class="input-wrapper">
+                    <label for="pass" class="form-label">Confirm Password</label>
+                    <input class="form-input exceptions" id="email" name="password2" required="" type="password" value="">
+                    <small>{{mess}}</small>
+                </div>
+                <input class="btn" id="submit" name="submit" type="submit" value="Register">
+            </form>
+        </div> -->
+        <div class="flex flex-1 flex-col items-center justify-center px-10 relative">
+            <!-- Login box -->
+            <form action="/reg" method="post">
+            <div class="flex flex-1 flex-col  justify-center space-y-5 max-w-md">
+              <div class="flex flex-col space-y-2 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold">Sign in to account</h2>
+                <p class="text-md md:text-xl">Register to purchase your brand new Tesla</p>
+              </div>
+              <div class="flex flex-col max-w-md space-y-5">
+                <input type="text" placeholder="Email"
+                  class="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" name="email"/>
+                <input type="password" placeholder="Password"
+                  class="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" name="password1" />
+                <input type="password" placeholder="Confirm password"
+                  class="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" name="password2"/>
+                  <div class="text-red-500 ">{{mess}}</div>
+                <button class="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black bg-black text-white" type="submit">Register</button>
+              </div>
+            </div>
+        </form>
+
+{% endblock %}

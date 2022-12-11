@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <main class="raw-hero">
+          <div class="raw-content">
+            <h1 class="heading-1">Raw material input</h1>
+          {%if current_user.roles != "god"%}
+
+            <form method="post" class="reg-form">
+            {{form.hidden_tag()}}
+            <div class="input-wrapper">
+              <label for="milk" class="form-label">{{form.milk.label}}</label>
+              {{form.milk(class="form-input exceptions")}}
+            </div>
+
+            {%if form.milk.errors%} {%for error in
+              form.milk.errors%}
+            <small>{{error}}</small>
+            {%endfor%} {%endif%}
+
+            <div class="input-wrapper">
+              <label for="sugar" class="form-label">{{form.sugar.label}}</label>
+              {{form.sugar(class="form-input exceptions")}}
+            </div>
+
+            {%if form.sugar.errors%} {%for error in
+              form.sugar.errors%}
+            <small>{{error}}</small>
+            {%endfor%} {%endif%}
+
+            <div class="input-wrapper">
+              <label for="beans" class="form-label">{{form.beans.label}}</label>
+              {{form.beans(class="form-input exceptions")}}
+            </div>
+
+            {%if form.beans.errors%} {%for error in form.beans.errors%}
+            <small>{{error}}</small>
+            {%endfor%} {%endif%}
+
+            {{form.submit(class="btn")}}
+         </form>
+         </div>
+
+        </main>
+  {% endif %}
+  {#    <br><br><br><br><br><br>#}
+        {%if current_user.roles == "god"%}
+        <table class="table">
+          <thead>
+            <tr class="table-row">
+              <th scope="col">Time</th>
+              <th scope="col">User</th>
+              <th scope="col">Milk</th>
+              <th scope="col">Sugar</th>
+              <th scope="col">Beans</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%for i in range(n)%}
+            <tr>
+              <td scope="row">{{date[i].strftime('%Y-%m-%d %H:%M:%S.%f')[:-4]}}</td>
+              <td>{{user.fname}}</td>
+              <td>{{milk[i]}}</td>
+              <td>{{sugar[i]}}</td>
+              <td>{{beans[i]}}</td>
+            </tr>
+            {%endfor%}
+          </tbody>
+        </table>
+<section class="graph-content">
+    <canvas id="myChart" width="100" height="50"></canvas>
+    </section>
+            {%endif%}
+<footer class="footer">
+    <p class="footer-text">
+        Made with ❤️ by Xino
+    </p>
+</footer>
+<script>
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: {{ date_gr|safe }},
+        datasets: [{
+            label: 'Milk',
+            data: {{milk_gr}},
+            backgroundColor:'#e73478',
+            borderColor: '#e73478',
+            tension: 0.1,
+            borderWidth: 1
+        },{
+            label: 'Sugar',
+            data: {{sugar_gr}},
+            fill:false,
+            backgroundColor: '#eff1f3',
+            borderColor: '#eff1f3',
+             tension: 0.1,
+            borderWidth: 1
+        },{
+            label: 'Beans',
+            data: {{beans_gr}},
+            fill:false,
+            backgroundColor: '#e3b505',
+            borderColor: '#e3b505',
+             tension: 0.1,
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        },
+        plugins: {
+            title: {
+                display: true,
+                text: 'Raw material graph'
+            }
+        }
+    }
+});
+</script>
+
+{% endblock %}

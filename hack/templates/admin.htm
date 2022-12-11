@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main class="account-hero">
+    <h1 class="account-head">Account Details</h1>
+    <div class="account-content">
+        <div class="account-main">
+            <div class="account-main-details">
+                <h1 class="d-cap">${{ profit }}</h1>
+                <h1 class="d-text">Profits</h1>
+
+            </div>
+            <div class="account-sub-details">
+                <h1 class="w-text">Sales:${{ sales }}</h1>
+                <h1 class="w-text">raw_material(units):{{  raw_material }} units </h1>
+                <h1 class="w-text">raw_material(cost):${{  raw_material_cost }} </h1>
+                <canvas id="myChart" class="myChart" width="400" height="400"></canvas>
+<script>
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Sales', 'Raw Material', 'Raw Material Cost',],
+        datasets: [{
+            label: 'Chart',
+            data: [{{ sales }}, {{raw_material}}, {{ raw_material_cost }}],
+            backgroundColor: [
+                '#e73478',
+                '#eff1f3',
+                '#e3b505'
+            ],
+            borderColor: [
+               '#e73478',
+                '#eff1f3',
+                '#e3b505'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+
+
+            </div>
+        </div>
+        <div class="account-sub">
+            <div class="account-data-1">
+                <div class="account-main-details-1">
+                    <h1 class="w-cap">Top Employee</h1>
+                     <h3 class="g-cap">{{ user.fname }}</h3>
+                     <p class="d-text">Sales</p>
+
+                </div>
+            </div>
+            <div class="account-data-2">
+                <div class="account-main-details-1 crct">
+                 <h1 class="w-cap">Inventory</h1>
+                 <table class="table info-table">
+{#          <thead>#}
+{#            <tr class="table-row">#}
+{#              <th scope="col">Time</th>#}
+{#              <th scope="col">User</th>#}
+{#              <th scope="col">Message</th>#}
+{##}
+{#            </tr>#}
+{#          </thead>#}
+          <tbody>
+            <tr>
+              <td scope="row">{{ user.fname }}</td>
+              <td>2022-01-18 11:01:40.94</td>
+              <td></td>
+              <td>Milk stock low</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+
+                    <table class="table info-table">
+
+                                  <tbody>
+                                    <tr>
+                                      <td scope="row">{{ user.fname }}</td>
+                                      <td>2022-01-18 11:11:20.34</td>
+                                      <td></td>
+                                      <td>Milk shipment arrived</td>
+                                      <td></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+
+                                <table class="table info-table">
+                                    {#          <thead>#}
+                                    {#            <tr class="table-row">#}
+                                    {#              <th scope="col">Time</th>#}
+                                    {#              <th scope="col">User</th>#}
+                                    {#              <th scope="col">Message</th>#}
+                                    {##}
+                                    {#            </tr>#}
+                                    {#          </thead>#}
+                                              <tbody>
+                                                <tr>
+                                                  <td scope="row">{{ user.fname }}</td>
+                                                  <td>2022-01-18 11:21:40.44</td>
+                                                  <td></td>
+                                                  <td>Milk stock refilled </td>
+                                                  <td></td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}
