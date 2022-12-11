@@ -15,5 +15,10 @@ class User(db.Model,UserMixin):
     email = db.Column(db.String(64),index=True)
     password = db.Column(db.String(64), nullable=False)
     
+class Product(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(128))
+    price = db.Column(db.Integer)
+    
 
 

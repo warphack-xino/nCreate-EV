@@ -1,18 +1,23 @@
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>404 Makes bear sad</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="../static/fof.css">
+{% extends 'base.html' %}
+{% block content %}
+<main class="h-screen w-full flex flex-col justify-center items-center bg-[#1A2238]">
+  <h1 class="text-9xl font-extrabold text-white tracking-widest">404</h1>
+  <div class="bg-[#FF6A3D] px-2 text-sm rounded rotate-12 absolute">
+      Page Not Found
+  </div>
+  <button class="mt-5">
+    <a
+      class="relative inline-block text-sm font-medium text-[#FF6A3D] group active:text-orange-500 focus:outline-none focus:ring"
+    >
+      <span
+        class="absolute inset-0 transition-transform translate-x-0.5 translate-y-0.5 bg-[#FF6A3D] group-hover:translate-y-0 group-hover:translate-x-0"
+      ></span>
 
-</head>
-<body bgcolor="#2c2c2c">
-<div id="app"></div>
+      <span class="relative block px-8 py-3 bg-[#1A2238] border border-current">
+        <router-link to="/">Return to home</router-link>
+      </span>
+    </a>
+  </button>
+</main>
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/react/16.13.1/umd/react.production.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/styled-components/3.2.1/styled-components.min.js'></script><script  src="../static/fof.js"></script>
-
-</body>
-</html>
+{% endblock content %}

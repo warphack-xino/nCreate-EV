@@ -2,84 +2,6 @@
 
 
 {% block content %}
-<!-- <main class="hero">
-     <div class="hero-img-container">
-        <img src="../static/hero img.jpg" alt="hero img" class="hero-img">
-    </div> 
-    <div class="hero-text-container">
-        <p class="hero-caption">
-            Best statistics to bring the market at your fingertips.
-        </p>
-        <p class="hero-heading">
-            Accuracy and precision at its pinnacle.
-        </p>
-        <a href="#" class="hero-btn">Get Started</a>
-    </div>
-</main>
-
-<section class="features">
-    <div class="features-content">
-        <h1 class="heading-1">Why Choose Us?</h1>
-        <div class="features-container">
-            <div class="feature">
-                <p class="feature-head">
-                    Easy to Use
-                </p>
-                <p class="feature-des">
-                    The user interface of the site is simple. Manufacturers, people in charge of raw materials and sellers have different IDs but that makes no difference in how they approach the website.
-                </p>
-                <p class="feature-more">
-                    Explore
-                </p>
-            </div>
-
-            <div class="feature">
-                <p class="feature-head">
-                    Data driven Analysis
-                </p>
-                <p class="feature-des">
-                    Get the in-market fluctuations anywhere and everywhere, as long as you are logged in. It has never been simpler for the planning of production to become better.
-                </p>
-                <p class="feature-more">
-                    Explore
-                </p>
-            </div>
-
-            <div class="feature">
-                <p class="feature-head">
-                    Production line
-                </p>
-                <p class="feature-des">
-                    Tracks the production line from the start i.e. gathering of raw materials to the end of the chocolate supply chain. A revolutionised method of cancelling production losses and keeping in track of everything
-                </p>
-                <p class="feature-more">
-                    Explore
-                </p>
-            </div>
-        </div>
-
-        <div class="main-feature">
-            <div class="main-feature-img-container">
-                <img src="../static/img 1.png" alt="feature" class="main-feature-img">
-            </div>
-            <div class="main-feature-text-container">
-                    <h2 class="heading-2">Faster. Better. Accurate. </h2>
-                    <p class="main-feature-des">
-                        Say goodbye to monthly presentation meetings to analyse the market tendencies. Experience the supply and demand of the market at your fingertips.
-                    </p>
-                    <a href="#" class="main-features-btn">Explore</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-<footer class="footer">
-    <p class="footer-text">
-        Made with ❤️ by Xino
-    </p>
-</footer> -->
 <section class=" rounded-lg text-gray-800">
 	<div class="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
 		<div class="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
@@ -92,15 +14,19 @@
 				<a rel="noopener noreferrer" href="#" class="px-8 py-3 text-lg font-semibold border rounded border-gray-800">Contact Us</a>
 			</div>
 		</div>
-		<div class="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
-			<img src="https://images.pexels.com/photos/4014114/pexels-photo-4014114.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="object-contain rounded-lg h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+		
+    <div class="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+      <div class="absolute -bottom-3 left-40 w-72 h-72 bg-red-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+      <div class="absolute top-20 -left-70 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+      <div class="absolute -bottom-72 -left-75 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+      <img src="https://images.pexels.com/photos/4014114/pexels-photo-4014114.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="object-contain rounded-lg h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
 		</div>
 	</div>
 </section>
 
 
 
-<h1 class="mb-4 text-3xl mx-5 font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-black bg-clip-text bg-gradient-to-t to-green-900 from-white">Our Top Selling Cars this month</span> </h1>
+<h1 class="mb-4 text-3xl mx-5 font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text text-black">Our Top Selling Cars this month</span> </h1>
 <main class="grid grid-cols-2 gap-5 place-items-center  ">
   
   <section class="flex flex-col mx-2.5 md:flex-row gap-11 py-5 px-2 bg-white rounded-md shadow-lg  md:max-w-2xl">
@@ -111,7 +37,8 @@
     </div>
     <div class="text-green-500">
       <small class="uppercase">Tesla </small>
-      <h3 class="uppercase text-black text-2xl font-medium">Model - L</h3>
+      <a href="products/Model%20-%20L">
+      <h3 class="uppercase text-black text-2xl font-medium cursor-pointer">Model - L</h3></a>
       <h3 class="text-2xl font-semibold mb-7">$96,600</h3>
       <small class="text-black">The Model L is the best in class electric car having a 396 mi range. Reaching top speeds of 60 mph in 1.99s. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </small>
@@ -133,8 +60,9 @@
       </div>
     </div>
     <div class="text-green-500">
-      <small class="uppercase">Tesla</small>
-      <h3 class="uppercase text-black text-2xl font-medium">Model - M</h3>
+      <small class="uppercase">Tesla </small>
+      <a href="/products/Model%20-%20M">
+      <h3 class="uppercase text-black text-2xl font-medium hover:cursor-pointer">Model - M</h3></a>
       <h3 class="text-2xl font-semibold mb-7">$96,600</h3>
       <small class="text-black">The Model M is the best in class electric car having a 396 mi range. Reaching top speeds of 60 mph in 1.99s. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </small>
@@ -203,6 +131,5 @@ Toast.fire({
     })
 
 </script>
-
 
 {% endblock %}

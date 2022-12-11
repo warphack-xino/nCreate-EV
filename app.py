@@ -1,12 +1,12 @@
 from hack import app,db
 from flask import render_template,redirect,url_for,request,flash,abort
 from flask_login import login_user,login_required,logout_user,current_user
-from hack.models import User
-from hack.forms import LoginForm
+from hack.models import User, Product
+from hack.forms import CarForm
 from sqlalchemy import desc , asc
 from werkzeug.security import generate_password_hash,check_password_hash
 import flask
-from datetime import datetime
+
 @app.route('/')
 def home():
     return render_template('HomePage.html')
@@ -34,6 +34,9 @@ def login():
                 flash('Incorrect password.', category='error')
         else:
             mess = "Email not found"
+
+    if current_user.is_authenticated:
+        return abort(404)
 
     return render_template('Login.html', mess=mess)
 
@@ -63,6 +66,9 @@ def reg():
             login_user(new_user, remember=True)
             return redirect(url_for('home'))
 
+    if current_user.is_authenticated:
+        return abort(404)
+
     return render_template('reg.html', mess=mess)
 
 @app.route('/cart')
@@ -70,6 +76,17 @@ def reg():
 def cart():
     return "<h1> This is the cart page. </h1>"
 
+@app.errorhandler(404)
+def handle_404(e):
+    return render_template('error_404.html')
+
+@app.route('/products/<name>', methods=['GET', 'POST'])
+def display_product(name):
+    product = Product.query.filter_by(name=name).first()
+    form = CarForm()
+    color_sel = form.colors.data
+    return render_template('product.html', product=product, form=form, col=color_sel)
+    
 
 
 if __name__ == '__main__':

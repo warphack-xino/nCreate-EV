@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    {{product.name}} - {{product.price}}
+    <form method="post">
+        {{form.colors}}
+        {{form.models}}
+        {{form.submit}}
+    </form>
+    {% if col == "Red" %}
+        {{col}}
+    {% endif %}
+    {% if col == "Green" %}
+        {{col}}
+    {% endif %}
+    {% if col == "Black" %}
+        {{col}}
+    {% endif %}
+
+{% endblock content %}
