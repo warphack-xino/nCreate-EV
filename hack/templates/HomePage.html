@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
-
+{% block title %}
+  Home
+{% endblock title %}
 {% block content %}
 <section class=" rounded-lg text-gray-800">
 	<div class="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
@@ -36,14 +38,15 @@
       </div>
     </div>
     <div class="text-green-500">
-      <small class="uppercase">Tesla </small>
-      <a href="products/Model%20-%20L">
+      <small class="uppercase">Tesla</small>
+      <a href="/products/Model%20-%20L">
       <h3 class="uppercase text-black text-2xl font-medium cursor-pointer">Model - L</h3></a>
       <h3 class="text-2xl font-semibold mb-7">$96,600</h3>
       <small class="text-black">The Model L is the best in class electric car having a 396 mi range. Reaching top speeds of 60 mph in 1.99s. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </small>
       <div class="flex gap-0.5 mt-4">
-        <button id="addToCartButton" class="bg-green-600 rounded-md hover:bg-green-500 focus:outline-none transition text-white uppercase px-8 py-3">add to cart</button>
+        <a href="{{url_for('add', prod_id=1, name_='None')}}">
+        <button id="addToCartButton" class="bg-green-600 rounded-md hover:bg-green-500 focus:outline-none transition text-white uppercase px-8 py-3">add to cart</button></a>
         <button id="likeButton" class="bg-green-600 rounded-md hover:bg-green-500 focus:outline-none transition text-white uppercase p-3">
           <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
   <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
@@ -67,7 +70,8 @@
       <small class="text-black">The Model M is the best in class electric car having a 396 mi range. Reaching top speeds of 60 mph in 1.99s. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </small>
       <div class="flex gap-0.5 mt-4">
-        <button id="addToCartButton2" class="bg-green-600 rounded-md hover:bg-green-500 focus:outline-none transition text-white uppercase px-8 py-3">add to cart</button>
+        <a href="{{url_for('add', prod_id=2, name_='None')}}">
+        <button id="addToCartButton2" class="bg-green-600 rounded-md hover:bg-green-500 focus:outline-none transition text-white uppercase px-8 py-3">add to cart</button></a>
         <button id="likeButton2" class="bg-green-600 rounded-md hover:bg-green-500 focus:outline-none transition text-white uppercase p-3">
           <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
   <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>

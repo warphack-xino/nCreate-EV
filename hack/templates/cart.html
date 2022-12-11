@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+    Your cart
+{% endblock title %}
+{% block content %}
+    {% for prod in current_user.products %}
+        {{prod.name}} - &dollar;{{prod.price}}
+        <form action="{{url_for('payment_form')}}" method="POST">
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button " data-key={{public_key}} data-amount={{prod.price}}
+              data-name="Check Out" data-description="Upgrade to premium account." data-locale="auto" data-zip-code="true">
+              </script>
+          </form><br>
+        
+    {% endfor %}
+    
+{% endblock content %}

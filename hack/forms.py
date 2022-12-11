@@ -4,5 +4,5 @@ from wtforms.validators import DataRequired
 
 class CarForm(FlaskForm):
     colors =  SelectField('Colors', choices=[('Red'), ('Green'), ('Black')], validators=[DataRequired()])
-    models = SelectField('Models', choices=[('1', 'v1'), ('2', 'v2'), ('3', 'v3')], validators=[DataRequired()])
+    models = SelectField('Models', choices=[('v1'), ('v2'), ('v3')], validators=[DataRequired()])
     submit = SubmitField("Confirm selection")
